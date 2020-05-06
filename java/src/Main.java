@@ -16,7 +16,8 @@ public class Main
     public void startUI()
     {
         String[] a = {"MAIN"};
-        System.out.print(a[0]);
+        UI ui = new UI();
+        processing.core.PApplet.runSketch(a, ui);
 
     }
     public static void main(String[] args)
