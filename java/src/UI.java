@@ -63,6 +63,7 @@
       public void mouseClicked()
       {
           click = true;
+          ShowDhasboard();
       }
 
       public void showReactorBlades()
@@ -73,6 +74,15 @@
               objects.add(arc);
               reactors.add(arc);
           }
+      }
+
+      public void ShowDhasboard()
+      {
+          objects.clear();
+          background(0);
+          stroke(50, 100, 200);
+          Dashboard h = new Dashboard(this);
+          objects.add(h);
       }
 
   }
