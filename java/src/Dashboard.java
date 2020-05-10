@@ -14,6 +14,7 @@ import java.util.ArrayList;
 
 public class Dashboard extends GameObject{
 
+    Time t;
     UI ui;
 
     int borderW;
@@ -29,6 +30,8 @@ public class Dashboard extends GameObject{
         buttonWidth = ui.width/25;
         buttonHeight = ui.height/25;
         //loop to add 4 buttons
+
+        this.t = new Time(ui,0,borderH + (borderH / 16));
     }
 
     @Override
@@ -103,6 +106,7 @@ public class Dashboard extends GameObject{
         //time
         ui.pushMatrix();
         ui.translate(ui.width / 2, ui.height / 2);
+        t.render();
         ui.popMatrix();
 
 
