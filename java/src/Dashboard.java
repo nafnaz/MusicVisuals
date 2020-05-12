@@ -15,6 +15,7 @@ import java.util.ArrayList;
 public class Dashboard extends GameObject{
 
     Time t;
+    StarMatrix matrix;
     UI ui;
 
     int borderW;
@@ -24,6 +25,7 @@ public class Dashboard extends GameObject{
 
     Dashboard(UI ui){
         this.ui = ui;
+        this.matrix = new StarMatrix( ui, ui.width / 32, ui.height /32);
 
         borderW = ui.width / 4;
         borderH = ui.height / 4;
@@ -101,6 +103,7 @@ public class Dashboard extends GameObject{
             ui.pushMatrix();
             ui.translate(borderW,borderH);
             ui.popMatrix();
+            matrix.render();
         }
 
         //time
