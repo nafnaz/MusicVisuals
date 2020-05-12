@@ -15,25 +15,37 @@ import java.util.ArrayList;
 public class Dashboard extends GameObject{
 
     Time t;
-    StarMatrix matrix;
+    StarMatrix m;
+    Radar r;
     UI ui;
 
     int borderW;
     int borderH;
+    int buttonInterval = borderH / 3;
+    int j;
     int buttonWidth;
     int buttonHeight;
+    int i;
+
+
+
+//    ArrayList <Button> buttons = new ArrayList <>();
+//    ArrayList <Bar> bars = new ArrayList<>();
 
     Dashboard(UI ui){
         this.ui = ui;
-        this.matrix = new StarMatrix( ui, ui.width / 32, ui.height /32);
+        this.m = new StarMatrix( ui, ui.width / 32, ui.height /32);
 
+        this.r = new Radar( ui, 100, (ui.width / 4) / 2 ,  -(ui.height / 4 ) / 2 , 0.5f);
         borderW = ui.width / 4;
         borderH = ui.height / 4;
         buttonWidth = ui.width/25;
         buttonHeight = ui.height/25;
         //loop to add 4 buttons
 
+        //creates
         this.t = new Time(ui,0,borderH + (borderH / 16));
+
     }
 
     @Override
@@ -59,7 +71,7 @@ public class Dashboard extends GameObject{
         ui.stroke(0);
         ui.popMatrix();
 
-        //creates the left side layout   
+        //creates the left side layout
         ui.fill(26, 101, 101);
         ui.rect(0 , borderH , borderW , ui.height /2);
         ui.triangle(0 , borderH / 2 , 0 , borderH , borderW , borderH);
@@ -98,12 +110,17 @@ public class Dashboard extends GameObject{
         ui.popMatrix();
 
 
+
+
+        r.render();
+        r.update();
+
         //map
         if ( ui.click == true  ){
             ui.pushMatrix();
             ui.translate(borderW,borderH);
+            m.render();
             ui.popMatrix();
-            matrix.render();
         }
 
         //time
@@ -118,7 +135,6 @@ public class Dashboard extends GameObject{
         ui.popMatrix();
 
         ui.strokeWeight(5);
-
 
     }
 }
