@@ -21,7 +21,9 @@ public class Dashboard extends GameObject{
 
     int borderW;
     int borderH;
+    int buttonAmount = 4;
     int buttonInterval = borderH / 3;
+    int barAmount = 4;
     int j;
     int buttonWidth;
     int buttonHeight;
@@ -29,8 +31,8 @@ public class Dashboard extends GameObject{
 
 
 
-//    ArrayList <Button> buttons = new ArrayList <>();
-//    ArrayList <Bar> bars = new ArrayList<>();
+    ArrayList <Button> buttons = new ArrayList <>();
+    ArrayList <Bar> bars = new ArrayList<>();
 
     Dashboard(UI ui){
         this.ui = ui;
@@ -42,6 +44,14 @@ public class Dashboard extends GameObject{
         buttonWidth = ui.width/25;
         buttonHeight = ui.height/25;
         //loop to add 4 buttons
+        for(i = 0; i < buttonAmount; i++){
+            buttons.add(new Button(ui, (borderW/5)*(i+1)-(buttonWidth/2), ui.height - (borderH/2)-(buttonHeight/2), buttonWidth, buttonHeight, ""));
+        }
+
+        // loop to add in the bar meters
+        for( i = 0; i < barAmount; i ++){
+            bars.add(new Bar(ui, ui.width - ((borderW/5)*(i+1)-(buttonWidth/2)+ buttonWidth), ui.height - (borderH * 1.25f), buttonWidth));
+        }
 
         //creates
         this.t = new Time(ui,0,borderH + (borderH / 16));
@@ -135,6 +145,21 @@ public class Dashboard extends GameObject{
         ui.popMatrix();
 
         ui.strokeWeight(5);
+
+        //update/render
+        buttons.stream().map((b) -> {
+            b.update();
+            return b;
+        }).forEachOrdered((b) -> {
+            b.render();
+        });
+
+        bars.stream().map((b) -> {
+            b.update();
+            return b;
+        }).forEachOrdered((b) -> {
+            b.render();
+        });
 
     }
 }
