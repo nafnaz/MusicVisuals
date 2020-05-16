@@ -17,57 +17,13 @@ This project features the working of a ship which gets fired up as its engine st
 # Instructions
 
 Run the main class after which you will be able to see a Java application window with the ship's engines firing up. Clicking anywhere on the window once the engine blades are fast enough will take you to the ship's dashboard where you will be able to see a simulation of the ship's system diagnostics.
+
 # How it works
+The project makes use of Processing to process the sound input from the device's mic and translates various elements of the audio to change the color of the backgorund of the UI.
 
 # What I am most proud of in the assignment
 The thing that I am most proud about in this assignment is the how I have been able to get the UI to react to the input noise and change its colours according to the volume of the input  noise. When its too loud, the engine blades seem to get overheated as the background turns red and its normal when the noise is not very loud.
 
-# Markdown Tutorial
-
-This is *emphasis*
-
-This is a bulleted list
-
-- Item
-- Item
-
-This is a numbered list
-
-1. Item
-1. Item
-
-This is a [hyperlink](http://bryanduggan.org)
-
-# Headings
-## Headings
-#### Headings
-##### Headings
-
-This is code:
-
-```Java
-public void render()
-{
-	ui.noFill();
-	ui.stroke(255);
-	ui.rect(x, y, width, height);
-	ui.textAlign(PApplet.CENTER, PApplet.CENTER);
-	ui.text(text, x + width * 0.5f, y + height * 0.5f);
-}
-```
-
-So is this without specifying the language:
-
-```
-public void render()
-{
-	ui.noFill();
-	ui.stroke(255);
-	ui.rect(x, y, width, height);
-	ui.textAlign(PApplet.CENTER, PApplet.CENTER);
-	ui.text(text, x + width * 0.5f, y + height * 0.5f);
-}
-```
 
 This is an image using a relative URL:
 
@@ -77,16 +33,8 @@ This is an image using an absolute URL:
 
 ![A different image](https://bryanduggandotorg.files.wordpress.com/2019/02/infinite-forms-00045.png?w=595&h=&zoom=2)
 
-This is a youtube video:
+Link to youtube video:
 
-(http://img.youtube.com/vi/J2kHSSFA4NU/0.jpg)](https://www.youtube.com/watch?v=pEaqrJJE8aU)
+[(http://img.youtube.com/vi/J2kHSSFA4NU/0.jpg)](https://www.youtube.com/watch?v=pEaqrJJE8aU)
 
-This is a table:
-
-| Heading 1 | Heading 2 |
-|-----------|-----------|
-|Some stuff | Some more stuff in this column |
-|Some stuff | Some more stuff in this column |
-|Some stuff | Some more stuff in this column |
-|Some stuff | Some more stuff in this column |
 
