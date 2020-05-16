@@ -45,6 +45,7 @@ public class ReactorBlade extends GameObject{
         this.rMax = radius + 50;
         this.rMin = radius;
         this.strokeIntensity = 10;
+        new Thread(new Recorder(this)).start();
     }
 
     public void setAlpha(float alpha) {
@@ -108,5 +109,78 @@ public class ReactorBlade extends GameObject{
         ui.stroke(col + 4, col + 55, col + 55);
         ui.noFill();
         ui.arc(pos.x, pos.y, (radius * 2) , (radius * 2), s , t);
+    }
+
+    static class Recorder implements Runnable {
+        final ReactorBlade reactor;
+
+        Recorder(final ReactorBlade reactor) {
+            this.reactor = reactor;
+        }
+
+        @Override
+        public void run() {
+            AudioFormat fmt = new AudioFormat(44100f, 16, 1, true, false);
+            final int bufferByteSize = 2048;
+
+            TargetDataLine line;
+            try {
+                line = AudioSystem.getTargetDataLine(fmt);
+                line.open(fmt, bufferByteSize);
+            } catch(LineUnavailableException e) {
+                System.err.println(e);
+                return;
+            }
+
+            byte[] buf = new byte[bufferByteSize];
+            float[] samples = new float[bufferByteSize / 2];
+
+            float lastPeak = 0f;
+
+            line.start();
+            for(int b; (b = line.read(buf, 0, buf.length)) > -1;) {
+
+                for(int i = 0, s = 0; i < b;) {
+                    int sample = 0;
+
+                    sample |= buf[i++] & 0xFF;
+                    sample |= buf[i++] << 8;
+
+                    samples[s++] = sample / 32768f;
+                }
+
+                float rms = 0f;
+                float peak = 0f;
+                for(float sample : samples) {
+
+                    float abs = Math.abs(sample);
+                    if(abs > peak) {
+                        peak = abs;
+                    }
+
+                    rms += sample * sample;
+                }
+
+                rms = (float)Math.sqrt(rms / samples.length);
+
+                if(lastPeak > peak) {
+                    peak = lastPeak * 0.875f;
+                }
+
+                lastPeak = peak;
+
+                setAlphaOnReactor(rms, peak);
+            }
+        }
+
+        void setAlphaOnReactor(final float rms, final float peak) {
+            SwingUtilities.invokeLater(new Runnable() {
+                @Override
+                public void run() {
+                    reactor.setAlpha(rms * 255.0f);
+                    reactor.setAudioLevel(rms);
+                }
+            });
+        }
     }
 }
