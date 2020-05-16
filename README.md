@@ -24,15 +24,6 @@ The project makes use of Processing to process the sound input from the device's
 # What I am most proud of in the assignment
 The thing that I am most proud about in this assignment is the how I have been able to get the UI to react to the input noise and change its colours according to the volume of the input  noise. When its too loud, the engine blades seem to get overheated as the background turns red and its normal when the noise is not very loud.
 
-
-This is an image using a relative URL:
-
-![An image](images/p8.png)
-
-This is an image using an absolute URL:
-
-![A different image](https://bryanduggandotorg.files.wordpress.com/2019/02/infinite-forms-00045.png?w=595&h=&zoom=2)
-
 Link to youtube video:
 
 [(http://img.youtube.com/vi/J2kHSSFA4NU/0.jpg)](https://www.youtube.com/watch?v=pEaqrJJE8aU)
