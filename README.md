@@ -26,6 +26,6 @@ The thing that I am most proud about in this assignment is the how I have been a
 
 Link to youtube video:
 
-[(http://img.youtube.com/vi/J2kHSSFA4NU/0.jpg)](https://www.youtube.com/watch?v=pEaqrJJE8aU)
+[(http://img.youtube.com/vi/e3Bg5ZaJjpc/0.jpg)](https://www.youtube.com/watch?v=e3Bg5ZaJjpc)
 
 
