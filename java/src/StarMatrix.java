@@ -29,7 +29,7 @@ public class StarMatrix{
     }
 
     public void render(){
-        ui.stroke(255);
+        ui.stroke(255, 255, 255, 255);
         for(i = 0 ; i <= amountW; i++){
             ui.line(x + (interval * i) , y , x + (interval * i), y +(amountH * interval));
             for( j = 0; j <= amountH; j++){

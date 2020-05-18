@@ -30,8 +30,8 @@ public class Button extends GameObject
 
     public void render()
     {
-        ui.fill(255, 0, 0);
-        ui.stroke(255, 0, 0);
+        ui.fill(228, 94, 105);
+        ui.stroke(228, 94, 105);
         ui.rect(pos.x, pos.y, width, height);
         ui.textAlign(UI.CENTER, ui.CENTER);
         ui.text(text, pos.x + width * 0.5f, pos.y + height * 0.5f);

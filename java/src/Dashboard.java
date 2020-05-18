@@ -60,29 +60,29 @@ public class Dashboard extends GameObject{
 
     @Override
     public void render(){
-        ui.background(0);
-        ui.fill(0);
+        ui.background(39, 43, 75);
+        ui.fill(39, 43, 75);
 
 
         //Covers the top white.
         ui.rect(0,0, ui.width , borderH);
 
         //creates the top border and bottom border layout
-        ui.fill(52, 203, 203);
+        ui.fill(32, 36, 64);
         ui.stroke(0);
         ui.pushMatrix();
         ui.translate(borderW , 0);
         ui.rect(0 , 0, ui.width / 2 , borderH / 2);
         ui.translate(0 , ui.height - borderW / 2);
-        ui.fill(52, 203, 203);
+        ui.fill(32, 36, 64);
         ui.rect(0, 0 , ui.width / 2 , borderH);
-        ui.fill(255, 0, 0);
+        ui.fill(112, 214, 135);
         ui.rect(0 , 0, ui.width / 2 , borderH / 4);
         ui.stroke(0);
         ui.popMatrix();
 
         //creates the left side layout
-        ui.fill(26, 101, 101);
+        ui.fill(32, 36, 64);
         ui.rect(0 , borderH , borderW , ui.height /2);
         ui.triangle(0 , borderH / 2 , 0 , borderH , borderW , borderH);
         ui.triangle(0 , 0 , borderW , 0 , borderW , borderH / 2);
@@ -91,23 +91,23 @@ public class Dashboard extends GameObject{
         ui.stroke(0);
         ui.rect(0, ui.height - borderH, borderW + (borderW / 12) ,borderH / 4);
         ui.quad(borderW + (borderW / 12) , ui.height - borderH , borderW, ui.height - (borderH - borderH / 4) , borderW + (borderW / 4) , ui.height , (borderW + (borderW / 4)) + borderW / 8 , ui.height);
-        ui.fill(255);
+        ui.fill(59, 62, 111);
         ui.stroke(0);
 
         ui.textSize(25);
-        ui.fill(179, 143, 0);
+        ui.fill(255);
         ui.text("System ", ui.width/8, ui.height/3);
 
 
 
         ui.textSize(25);
-        ui.fill(204, 163, 0);
+        ui.fill(255);
         ui.text("Diagnostics", ui.width/8, ui.height/2.5f);
 
         //creates the right side layout
         ui.pushMatrix();
         ui.translate(ui.width - borderW , 0);
-        ui.fill(174, 234, 234);
+        ui.fill(32, 36, 64);
         ui.rect(0 , borderH , borderW , ui.height /2);
         ui.quad(0 , (ui.height - borderH ) + (borderH / 4) , borderW , (ui.height - borderH ) + (borderH /4) ,  borderW  , ui.height, -(borderW / 4) , ui.height);
         ui.triangle(borderW , borderH / 2 , 0 , borderH , borderW , borderH);
